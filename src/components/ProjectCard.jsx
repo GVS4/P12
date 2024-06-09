@@ -1,5 +1,3 @@
-// src/components/projects/ProjectsGrid.jsx
-
 import { useSelector, useDispatch } from 'react-redux';
 import { FiSearch } from 'react-icons/fi';
 import ProjectSingle from './ProjectSingle';
@@ -89,18 +87,18 @@ const ProjectsGrid = () => {
         {searchProject
           ? searchProjectsByTitle.map((project) => (
               <ProjectSingle
+                key={project.id} // Added unique key here
                 title={project.title}
                 category={project.category}
-                image={project.img}
-                key={project.id}
+                image={project.previewImage}
               />
             ))
           : projects.map((project) => (
               <ProjectSingle
+                key={project.id} // Added unique key here
                 title={project.title}
                 category={project.category}
-                image={project.img}
-                key={project.id}
+                image={project.previewImage}
               />
             ))}
       </div>

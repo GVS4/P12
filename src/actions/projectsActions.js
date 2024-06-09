@@ -1,9 +1,13 @@
-import projectsJson from '../data/projectsJson.json';
+// src/actions/projectsActions.js
 
-const GITHUB_TOKEN = process.env.VITE_GITHUB_TOKEN;
+import projectsJson from "../data/projectsJson.json";
+
+const GITHUB_TOKEN = typeof process !== 'undefined' ? process.env.REACT_APP_GITHUB_TOKEN : '';
 
 export const SET_PROJECTS = 'SET_PROJECTS';
 export const SET_PROJECTS_ERROR = 'SET_PROJECTS_ERROR';
+export const SET_SEARCH_PROJECT = "SET_SEARCH_PROJECT";
+export const SET_SINGLE_PROJECT = 'SET_SINGLE_PROJECT';
 
 export const setProjects = (projects) => ({
   type: SET_PROJECTS,
@@ -15,7 +19,16 @@ export const setProjectsError = (error) => ({
   payload: error,
 });
 
-// Fonction pour afficher les informations de limite de taux de l'API GitHub
+export const setSearchProject = (searchTerm) => ({
+  type: SET_SEARCH_PROJECT,
+  payload: searchTerm,
+});
+
+export const setSingleProject = (project) => ({
+  type: SET_SINGLE_PROJECT,
+  payload: project,
+});
+
 const logRateLimitInfo = (headers) => {
   if (!GITHUB_TOKEN) {
     const rateLimit = headers.get('X-RateLimit-Limit');
@@ -30,7 +43,6 @@ const logRateLimitInfo = (headers) => {
   }
 };
 
-// Fonction asynchrone pour récupérer les dépôts depuis l'API GitHub
 const fetchRepositories = async () => {
   const headers = {};
   if (GITHUB_TOKEN) {
@@ -47,7 +59,6 @@ const fetchRepositories = async () => {
   return await response.json();
 };
 
-// Fonction asynchrone pour récupérer les langages utilisés dans chaque projet
 const fetchLanguages = async (project) => {
   const headers = {};
   if (GITHUB_TOKEN) {
@@ -65,21 +76,21 @@ const fetchLanguages = async (project) => {
   return { ...project, languages };
 };
 
-// Fonction pour assembler les données des projets avec les dépôts récupérés
 const assembleProjects = (reposGithub) => {
   return projectsJson.map((project) => {
     const repo = reposGithub.find((r) => r.name === project.repo.split('/')[1]);
     if (!repo) return null;
 
     return {
+      ...project,
+      title: `${repo.name} - ${project.name}`,
       repoName: repo.name,
       projectName: project.name,
-      competences: project.competences.join(' | '),
       languages_url: repo.languages_url,
       lastUpdate: repo.updated_at,
       htmlUrl: repo.html_url,
       demoUrl: `https://GVS4.github.io/${repo.name}/`,
-      previewImage: project.previewImage
+      previewImage: project.img
     };
   }).filter(Boolean);
 };

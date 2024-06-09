@@ -1,8 +1,11 @@
+// src/reducers/index.js
 import { combineReducers } from '@reduxjs/toolkit';
-import jspReducer from './jspReducer';
+import aboutReducer from './aboutReducer';
 import projectsReducer from './projectsReducer';
 
-export default combineReducers({
-  jsp: jspReducer,
+const rootReducer = combineReducers({
+  about: aboutReducer,
   projects: projectsReducer,
 });
+
+export default rootReducer;
