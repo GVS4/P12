@@ -1,0 +1,29 @@
+.language-bar-container {
+  position: relative;
+  width: 100%;
+}
+
+.language-bar {
+  height: 0.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.language-bar-segment {
+  height: 100%;
+}
+
+.language-tooltip {
+  position: fixed;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}

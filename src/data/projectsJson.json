@@ -1,0 +1,87 @@
+[
+    {
+      "repo": "GVS4/P2",
+      "name": "Premiers pas sur le langage HTML",
+      "competences": [
+        "Intégrer des éléments sur une page web en utilisant les fondamentaux de HTML"
+      ],
+      "previewImage": "./assets/images/P2.webp"
+    },
+    {
+      "repo": "GVS4/P3",
+      "name": "Créez la page d'accueil d'une agence de voyage avec HTML & CSS",
+      "competences": [
+        "Implémenter une interface responsive avec HTML et CSS",
+        "Installer un environnement de développement front-end",
+        "Intégrer du contenu conformément à une maquette avec HTML et CSS"
+      ],
+      "previewImage": "./assets/images/P3.webp"
+    },
+    {
+      "repo": "GVS4/P4",
+      "name": "Améliorez l'interface d'un site mobile avec des animations CSS",
+      "competences": [
+          "Intégrer une maquette en mobile-first",
+          "Mettre en œuvre des animations CSS",
+          "Versionner son projet avec Git et Github"
+      ],
+      "previewImage": "./assets/images/P4.webp"
+    },
+    {
+      "repo": "GVS4/P5",
+      "name": "Premiers pas sur le langage JavaScript",
+      "competences": [
+          "Programmer en utilisant les fondamentaux de JavaScript"
+      ],
+      "previewImage": "./assets/images/P5.webp"
+    },
+    {
+      "repo": "GVS4/P6",
+      "name": "Créez une page web dynamique avec JavaScript",
+      "competences": [
+          "Gérer les événements utilisateurs avec JavaScript",
+          "Manipuler les éléments du DOM avec JavaScript",
+          "Récupérer les données utilisateurs dans le JavaScript via des formulaires"
+      ],
+      "previewImage": "./assets/images/P6.webp"
+    },
+    {
+      "repo": "GVS4/P8",
+      "name": "Créez une application web de location immobilière avec React",
+      "competences": [
+          "Développer une interface web avec Sass",
+          "Configurer la navigation entre les pages de l'application avec React Router",
+          "Développer des éléments de l'interface d'un site web grâce à des composants React",
+          "Mettre en œuvre des animations CSS",
+          "Initialiser une application avec Create React App"
+      ],
+      "previewImage": "./assets/images/P8.webp"
+    },
+    {
+      "repo": "GVS4/P9",
+      "name": "Optimisez le référencement d'un site de photographe",
+      "competences": [
+          "Optimiser la performance d'un site web"
+      ],
+      "previewImage": "./assets/images/P9.webp"
+    },
+    {
+      "repo": "GVS4/P11",
+      "name": "Implémentez le front-end d'une application bancaire avec React",
+      "competences": [
+          "Afficher les données du back end sur l'interface via des appels API",
+          "Configurer des routes API pour la communication client / serveur",
+          "Implémenter la gestion des données avec Redux pour assurer le fonctionnement du front"
+      ],
+      "previewImage": "./assets/images/P11.webp"
+    },
+    {
+      "repo": "GVS4/P12",
+      "name": "Créez et publiez votre portfolio de développeur",
+      "competences": [
+          "Déployer un site statique en ligne"
+      ],
+      "previewImage": "./assets/images/P12.webp"
+    }
+  ]
+  
