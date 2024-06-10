@@ -1,6 +1,4 @@
-// src/actions/projectsActions.js
-
-import projectsJson from "../data/projectsJson.json";
+import projectsData from "../data/projectsData";
 
 const GITHUB_TOKEN = typeof process !== 'undefined' ? process.env.REACT_APP_GITHUB_TOKEN : '';
 
@@ -77,7 +75,7 @@ const fetchLanguages = async (project) => {
 };
 
 const assembleProjects = (reposGithub) => {
-  return projectsJson.map((project) => {
+  return projectsData.map((project) => {
     const repo = reposGithub.find((r) => r.name === project.repo.split('/')[1]);
     if (!repo) return null;
 
@@ -90,7 +88,6 @@ const assembleProjects = (reposGithub) => {
       lastUpdate: repo.updated_at,
       htmlUrl: repo.html_url,
       demoUrl: `https://GVS4.github.io/${repo.name}/`,
-      previewImage: project.img
     };
   }).filter(Boolean);
 };

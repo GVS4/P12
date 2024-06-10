@@ -1,9 +1,9 @@
-import ProjectsGrid from '../components/projects/ProjectsGrid';
+import ProjectSingleGrid from '../components/projects/ProjectsGrid';
 
 const Projects = () => {
   return (
     <div className="container mx-auto">
-      <ProjectsGrid />
+      <ProjectSingleGrid />
     </div>
   );
 };

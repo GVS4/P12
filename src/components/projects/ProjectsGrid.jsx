@@ -1,30 +1,25 @@
-// src/components/projects/ProjectsGrid.jsx
-
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FiSearch } from 'react-icons/fi';
-import ProjectSingle from './ProjectSingle';
+import ProjectSingleGrid from './ProjectSingleGrid.jsx';
 import { setSearchProject } from '../../actions/projectsActions';
 
 const ProjectsGrid = () => {
   const dispatch = useDispatch();
-  const { projects, searchProject } = useSelector((state) => state.projects);
+  const projects = useSelector((state) => state.projects.projects);
+  const searchProject = useSelector((state) => state.projects.searchProject);
 
-  const searchProjectsByTitle = projects.filter((item) => {
-    const result = item.title
-      .toLowerCase()
-      .includes(searchProject.toLowerCase())
-      ? item
-      : searchProject === ''
-      ? item
-      : '';
-    return result;
-  });
+  const searchProjectsByTitle = projects
+    .filter((item) => {
+      return item.title.toLowerCase().includes(searchProject.toLowerCase());
+    })
+    .slice(0, 6); // Limiter à 6 projets
 
   return (
     <section className="py-5 sm:py-10 mt-5 sm:mt-10">
       <div className="text-center">
         <p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
-          Projects portfolio
+          Portfolio de projets
         </p>
       </div>
 
@@ -78,31 +73,22 @@ const ProjectsGrid = () => {
               name="name"
               type="search"
               required=""
-              placeholder="Search Projects"
-              aria-label="Name"
+              placeholder="Rechercher des projets"
+              aria-label="Nom"
             />
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
-        {searchProject
-          ? searchProjectsByTitle.map((project) => (
-              <ProjectSingle
-                title={project.title}
-                category={project.category}
-                image={project.img}
-                key={project.id}
-              />
-            ))
-          : projects.map((project) => (
-              <ProjectSingle
-                title={project.title}
-                category={project.category}
-                image={project.img}
-                key={project.id}
-              />
-            ))}
+        {searchProjectsByTitle.map((project) => (
+          <ProjectSingleGrid
+            id={project.id}
+            title={project.title}
+            image={project.img}
+            key={project.id}
+          />
+        ))}
       </div>
     </section>
   );

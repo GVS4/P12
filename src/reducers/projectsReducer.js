@@ -1,5 +1,3 @@
-// src/reducers/projectsReducer.js
-
 import {
   SET_PROJECTS,
   SET_PROJECTS_ERROR,
