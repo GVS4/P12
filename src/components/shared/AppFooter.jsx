@@ -16,7 +16,7 @@ const socialLinks = [
 	{
 		id: 2,
 		icon: <FiGithub />,
-		url: 'https://github.com/realstoman',
+		url: 'https://github.com/GVS4',
 	 }
 	// {
 	// 	id: 3,

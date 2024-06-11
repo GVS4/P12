@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "./LanguageBar.scss";
 
 const languageColors = {
   JavaScript: "#f1e05a",
@@ -16,6 +17,7 @@ const LanguageBar = ({ languages }) => {
     x: 0,
     y: 0,
   });
+
 
   // Calcul du total des bytes pour tous les langages
   const total = Object.values(languages).reduce((sum, value) => sum + value, 0);
@@ -52,6 +54,7 @@ const LanguageBar = ({ languages }) => {
               style={{
                 width: `${percentage}%`, // Largeur proportionnelle au pourcentage
                 backgroundColor: languageColors[lang] || "#000", // Couleur de fond du segment
+                cursor: 'pointer'
               }}
               onMouseOver={(e) => handleMouseOver(e, lang, percentage)} // Gestionnaire de survol
               onMouseOut={handleMouseOut} // Gestionnaire de sortie

@@ -85,7 +85,7 @@ const ProjectsGrid = () => {
           <ProjectSingleGrid
             id={project.id}
             title={project.title}
-            image={project.img}
+            image={project.img1}
             key={project.id}
           />
         ))}
