@@ -4,14 +4,15 @@ import { FiSearch } from 'react-icons/fi';
 import ProjectSingleGrid from './ProjectSingleGrid.jsx';
 import { setSearchProject } from '../../actions/projectsActions';
 
+// ProjectsGrid component to display a grid of projects
 const ProjectsGrid = ({ limit }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects.projects);
   const searchProject = useSelector((state) => state.projects.searchProject);
 
-  const filteredProjects = projects.filter((item) => 
-    item.title.toLowerCase().includes(searchProject.toLowerCase())
-  );
+  const filteredProjects = projects
+    .filter((item) => item.title.toLowerCase().includes(searchProject.toLowerCase()))
+    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
   const projectsToDisplay = limit ? filteredProjects.slice(0, limit) : filteredProjects;
 

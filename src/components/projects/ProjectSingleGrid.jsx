@@ -11,7 +11,7 @@ const ProjectSingleGrid = ({ id, title, image }) => {
         duration: 0.7,
         delay: 0.15,
       }}
-      className="w-full max-w-xs" // Add Tailwind classes for width
+      className="w-full max-w-xs"
     >
       <Link to={`/projects/single-project/${id}`} aria-label="Single Project">
         <div

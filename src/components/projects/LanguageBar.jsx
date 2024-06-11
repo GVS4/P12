@@ -9,6 +9,7 @@ const languageColors = {
   SCSS: "#c6538c",
 };
 
+// LanguageBar component to display languages usage in a project
 const LanguageBar = ({ languages }) => {
   const [tooltip, setTooltip] = useState({
     visible: false,
@@ -18,14 +19,13 @@ const LanguageBar = ({ languages }) => {
     y: 0,
   });
 
-
-  // Calcul du total des bytes pour tous les langages
+  // Calculate the total bytes for all languages
   const total = Object.values(languages).reduce((sum, value) => sum + value, 0);
 
-  // Gestion du survol de la souris sur un segment de la barre de langage
+  // Handle mouse over event to show tooltip
   const handleMouseOver = (event, lang, percentage) => {
     const rect = event.target.getBoundingClientRect();
-    // Mise à jour de l'état du tooltip avec les informations du langage survolé
+    // Update tooltip state with information of the hovered language
     setTooltip({
       visible: true,
       text: `${lang} (${percentage}%)`,
@@ -35,9 +35,9 @@ const LanguageBar = ({ languages }) => {
     });
   };
 
-  // Gestion de la sortie de la souris d'un segment de la barre de langage
+  // Handle mouse out event to hide tooltip
   const handleMouseOut = () => {
-    // Masquer le tooltip en mettant à jour l'état
+    // Hide the tooltip by updating the state
     setTooltip({ ...tooltip, visible: false });
   };
 
@@ -52,12 +52,12 @@ const LanguageBar = ({ languages }) => {
               key={index}
               className="language-bar-segment"
               style={{
-                width: `${percentage}%`, // Largeur proportionnelle au pourcentage
-                backgroundColor: languageColors[lang] || "#000", // Couleur de fond du segment
+                width: `${percentage}%`, // Width proportional to percentage
+                backgroundColor: languageColors[lang] || "#000", // Segment background color
                 cursor: 'pointer'
               }}
-              onMouseOver={(e) => handleMouseOver(e, lang, percentage)} // Gestionnaire de survol
-              onMouseOut={handleMouseOut} // Gestionnaire de sortie
+              onMouseOver={(e) => handleMouseOver(e, lang, percentage)} // Handle mouse over
+              onMouseOut={handleMouseOut} // Handle mouse out
             />
           );
         })}

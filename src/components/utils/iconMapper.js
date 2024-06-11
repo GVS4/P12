@@ -1,4 +1,3 @@
-// utils/iconMapper.js
 import { FiFacebook, FiTwitter, FiLinkedin } from 'react-icons/fi';
 
 const iconMapper = {

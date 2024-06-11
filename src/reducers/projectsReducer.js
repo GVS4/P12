@@ -2,14 +2,12 @@ import {
   SET_PROJECTS,
   SET_PROJECTS_ERROR,
   SET_SEARCH_PROJECT,
-  SET_SINGLE_PROJECT,
 } from '../actions/projectsActions';
 
 const initialState = {
   projects: [],
   error: null,
   searchProject: '',
-  singleProject: null,
 };
 
 const projectsReducer = (state = initialState, action) => {
@@ -29,11 +27,6 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         searchProject: action.payload,
-      };
-    case SET_SINGLE_PROJECT:
-      return {
-        ...state,
-        singleProject: action.payload,
       };
     default:
       return state;
