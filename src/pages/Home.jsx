@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="container mx-auto">
       <AppBanner />
-      <ProjectsGrid />
+      <ProjectsGrid limit={6}/>
       <div className="mt-8 sm:mt-10 flex justify-center">
         <Link
           to="/projects"

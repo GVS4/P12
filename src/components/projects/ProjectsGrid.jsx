@@ -4,22 +4,22 @@ import { FiSearch } from 'react-icons/fi';
 import ProjectSingleGrid from './ProjectSingleGrid.jsx';
 import { setSearchProject } from '../../actions/projectsActions';
 
-const ProjectsGrid = () => {
+const ProjectsGrid = ({ limit }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects.projects);
   const searchProject = useSelector((state) => state.projects.searchProject);
 
-  const searchProjectsByTitle = projects
-    .filter((item) => {
-      return item.title.toLowerCase().includes(searchProject.toLowerCase());
-    })
-    .slice(0, 6); // Limiter à 6 projets
+  const filteredProjects = projects.filter((item) => 
+    item.title.toLowerCase().includes(searchProject.toLowerCase())
+  );
+
+  const projectsToDisplay = limit ? filteredProjects.slice(0, limit) : filteredProjects;
 
   return (
     <section className="py-5 sm:py-10 mt-5 sm:mt-10">
       <div className="text-center">
         <p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
-          Portfolio de projets
+          Projects Portfolio
         </p>
       </div>
 
@@ -73,15 +73,15 @@ const ProjectsGrid = () => {
               name="name"
               type="search"
               required=""
-              placeholder="Rechercher des projets"
-              aria-label="Nom"
+              placeholder="Search Projects"
+              aria-label="Name"
             />
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
-        {searchProjectsByTitle.map((project) => (
+        {projectsToDisplay.map((project) => (
           <ProjectSingleGrid
             id={project.id}
             title={project.title}

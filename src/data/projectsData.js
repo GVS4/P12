@@ -18,7 +18,8 @@ import P9 from "../images/P9.webp";
 import P9_2 from "../images/P9-2.webp";
 import P11 from "../images/P11.webp";
 import P11_2 from "../images/P11-2.webp";
-// import P12 from "../images/P12.webp";
+import P12 from "../images/P12.webp";
+import P12_2 from "../images/P12-2.webp"
 
 const projectsData = [
   {
@@ -122,6 +123,8 @@ const projectsData = [
     repo: "GVS4/P12",
     name: "Create and Publish Your Developer Portfolio",
     competence1: "Deploy a static site online.",
+    img1: P12,
+    img2: P12_2,
     publishDate: "Mar 1, 2022",
     description: "This project guides developers through creating and publishing their own developer portfolio website, showcasing their journey, skills, and projects professionally. The initial step involves building a personal website that includes at least two projects, clearly presenting the developer's background and competencies. The site is then deployed online, ensuring it is accessible to a broad audience. Emphasis is placed on responsive design for optimal user experience across all devices. The project also focuses on debugging, performance optimization, and SEO to ensure the portfolio is functional and well-ranked in search engines. These skills are essential for developers to stand out and secure professional opportunities, demonstrating their ability to deploy, optimize, and design responsive, professional websites."
   }
