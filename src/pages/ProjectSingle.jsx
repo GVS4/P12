@@ -19,13 +19,8 @@ const ProjectSingle = () => {
       const foundProject = projects.find(project => project.id === parseInt(id));
       setSingleProject(foundProject);
       
-      // Filtrer les projets pour exclure le projet actuel
       const otherProjects = projects.filter(project => project.id !== parseInt(id));
-      
-      // Mélanger les projets restants
       const shuffledProjects = otherProjects.sort(() => 0.5 - Math.random());
-      
-      // Sélectionner 4 projets aléatoires
       setRelatedProjects(shuffledProjects.slice(0, 4));
 
       setLoading(false);
