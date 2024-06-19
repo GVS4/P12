@@ -1,6 +1,5 @@
 import './css/main.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { createRoot } from 'react-dom/client';
 // Redux
 import { Provider } from 'react-redux';
@@ -16,5 +15,3 @@ root.render(
   </Provider>
 );
 
-// Appeler reportWebVitals pour mesurer les performances
-reportWebVitals();
